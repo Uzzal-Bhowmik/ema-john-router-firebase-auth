@@ -64,14 +64,14 @@
 }
 
 #addToCartBtn p {
-    margin-right: 0 !important;
+    margin: 0 !important;
 }
 
-#addToCartBtn img {
+#addToCartBtn svg {
     width: 24px !important;
     height: 20px;
-    margin-bottom: 6px;
     margin-left: 5px !important;
+    margin-top: 3px;
 }
 
 #addToCartBtn:hover {

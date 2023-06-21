@@ -13,9 +13,11 @@ const OrderItem = ({ orderedPd, handleDeleteItem }) => {
             </div>
 
             <div className='item-details'>
-                <h5>{name}</h5>
-                <p>Price: ${price}</p>
-                <p>Quantity: {quantity}</p>
+                <div>
+                    <h5>{name}</h5>
+                    <p>Price: ${price}</p>
+                    <p>Quantity: {quantity}</p>
+                </div>
             </div>
             <div className="item-delete-btn">
                 <button onClick={() => handleDeleteItem(id)}><FontAwesomeIcon icon={faTrashCan} size="2xl" style={{ color: "rgb(235, 87, 87)" }} /></button>

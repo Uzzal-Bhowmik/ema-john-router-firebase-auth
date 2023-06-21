@@ -1,6 +1,6 @@
 .ordered-item {
     width: 571px;
-    height: 107px;
+    min-height: 107px;
     display: grid;
     grid-template-columns: 18% 57% 25%;
     margin-bottom: 25px;
@@ -28,14 +28,19 @@
 
 
 .item-details {
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
     margin-left: 10px;
 }
 
-.item-details h5,
-p {
+.item-details h5 {
     margin-top: 0;
-    margin-bottom: 8px;
+}
+
+.item-details p {
+    margin: 0 !important;
 }
 
 

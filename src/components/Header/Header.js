@@ -9,14 +9,27 @@ const Header = () => {
             <nav>
                 <div className='nav-content'>
                     <div>
-                        <img src={logo} alt="logo" width="80%" />
+                        <Link to="/" >
+                            <img src={logo} alt="logo" width="80%" />
+                        </Link>
                     </div>
 
                     <div className='nav-links'>
                         <Link to="/">Shop</Link>
                         <Link to="/orders">Orders</Link>
                         <Link to="/inventory">Manage Inventory</Link>
-                        <Link to="/login">Login</Link>
+
+                        <Link to="/login">
+                            <button className="btn btn-warning">
+                                Log In
+                            </button>
+                        </Link>
+
+                        <Link to="/register">
+                            <button className="btn btn-outline-warning text-white">
+                                Sign Up
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </nav>

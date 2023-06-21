@@ -67,6 +67,7 @@
     cursor: pointer;
     margin-top: 10px;
     transition: all .3s ease;
+    color: white;
 }
 
 .review-order-btn a {

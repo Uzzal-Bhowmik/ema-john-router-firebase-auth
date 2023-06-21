@@ -6,6 +6,9 @@ import Orders from './components/Orders/Orders';
 import Inventory from './components/Inventory/Inventory';
 import { productAndCartLoader } from './loaders/productsAndCartLoader';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
 
@@ -15,6 +18,7 @@ function App() {
     {
       path: "/",
       element: <Main />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
@@ -33,16 +37,18 @@ function App() {
         {
           path: "/place-order",
           element: <PlaceOrder />
+        },
+        {
+          path: "/login",
+          element: <Login />
+        },
+        {
+          path: "/register",
+          element: <Register />
         }
       ]
 
     },
-
-    {
-      path: "*",
-      element: <div>404, Page Not Found!</div>
-    }
-
   ]);
 
   return (

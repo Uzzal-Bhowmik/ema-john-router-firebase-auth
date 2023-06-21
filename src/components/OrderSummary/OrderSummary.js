@@ -5,7 +5,8 @@ import "./OrderSummary.css";
 import { Link, useNavigate } from 'react-router-dom';
 
 const OrderSummary = (props) => {
-    const { cart, inOrdersCompo, handleClearCart, children } = props;
+    const { cart, children } = props;
+    console.log(children);
 
     // calculating total price of selected items in cart
 
@@ -20,11 +21,6 @@ const OrderSummary = (props) => {
         grandTotal = totalPrice + totalShipping + tax;
     }
 
-    const navigate = useNavigate();
-    const handlePlaceOrder = () => {
-        navigate("/place-order");
-        handleClearCart();
-    }
 
     return (
         <div className='cart-container'>
@@ -32,22 +28,20 @@ const OrderSummary = (props) => {
                 <h1>Order Summary</h1>
                 <div className='order-info'>
                     <p>Selected items: {totalQuantity}</p>
+
                     <p>Total Price: <span className="dollar-icon"><FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon></span>  {totalPrice}</p>
+
                     <p>Total Shipping Charge: <span className="dollar-icon"><FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon></span>{totalShipping}</p>
+
                     <p>Total Tax:<span className="dollar-icon"><FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon></span>{tax.toFixed(2)}</p>
-                    <h4>Grand Total: <span className="dollar-icon"><FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon></span>{grandTotal.toFixed(2)} </h4>
+
+                    <h4 className='text-center fw-bold py-3 lh-base'>Grand Total <br />
+                        <span className="dollar-icon"><FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon></span>
+
+                        {grandTotal.toFixed(2)}
+                    </h4>
                 </div>
 
-                {
-                    inOrdersCompo && <div>
-                        <button onClick={handleClearCart} className='clear-cart-btn'>Clear Cart</button>
-                        <br />
-                        <button className='place-order-btn' onClick={handlePlaceOrder}>
-                            <Link to="/place-order">Place Order</Link>
-                        </button>
-                    </div>
-
-                }
                 {children}
             </div>
         </div>

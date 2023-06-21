@@ -9,6 +9,8 @@ import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import About from './components/About/About';
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
 
@@ -36,7 +38,11 @@ function App() {
         },
         {
           path: "/place-order",
-          element: <PlaceOrder />
+          element: <PrivateRoute><PlaceOrder></PlaceOrder></PrivateRoute>
+        },
+        {
+          path: "/about",
+          element: <About />
         },
         {
           path: "/login",

@@ -42,12 +42,29 @@ const Orders = () => {
                     }
 
                     {
-                        cart.length === 0 && <h2 style={{ color: "#FF3030" }}>No items Found :( Please
-                            <Link to="/" style={{ marginLeft: "10px" }}>Shop More</Link></h2>
+                        cart.length === 0 && <h2 style={{ color: "#FF3030" }}>No items Found! Please
+                            <Link to="/" style={{ marginLeft: "14px" }}>Shop Here</Link></h2>
                     }
                 </div>
             </div>
-            <OrderSummary cart={cart} inOrdersCompo={"yes"} handleClearCart={handleClearCart}></OrderSummary>
+
+            <OrderSummary cart={cart}>
+                {
+                    cart.length ? (
+                        <div>
+                            <button onClick={handleClearCart} className='clear-cart-btn'>Clear Cart</button>
+                            <br />
+
+                            <Link to="/place-order">
+                                <button className='place-order-btn text-white'>
+                                    Place Order
+                                </button>
+                            </Link>
+                        </div>
+                    ) :
+                        ""
+                }
+            </OrderSummary>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import "./Register.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 
@@ -9,6 +9,8 @@ const Register = () => {
     const { signUp } = useContext(AuthContext);
 
     const [signUpError, setSignUpError] = useState("");
+
+    const navigate = useNavigate();
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -28,6 +30,7 @@ const Register = () => {
         signUp(email, password)
             .then(result => {
                 form.reset();
+                navigate("/")
             })
             .catch(error => {
                 setSignUpError(error?.code || error?.message)

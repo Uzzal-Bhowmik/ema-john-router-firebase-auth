@@ -1,27 +1,51 @@
 .shop-container {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    /* position: relative; */
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  /* position: relative; */
 }
 
 .products-container {
-    margin: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 45px;
+  margin: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
 }
-.proceed-link{
-    text-decoration: none;
+.proceed-link {
+  text-decoration: none;
 }
 .btn-proceed {
-    background: #FF9900;
-    width: 90%;
-    height: 56px;
-    font-size: 21px;
-    margin: 10px auto;
-    border-radius: 4px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: #ff9900;
+  width: 90%;
+  height: 56px;
+  font-size: 21px;
+  margin: 10px auto;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.pagination button {
+  margin-right: 10px;
+  color: white;
+}
+
+.pagination .selected {
+  background: #ff9900;
+}
+
+.pagination select {
+  width: 55px;
+  height: 42px;
+  background-color: black;
+  color: wheat;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 10px;
 }

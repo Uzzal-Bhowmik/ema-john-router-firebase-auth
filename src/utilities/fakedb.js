@@ -21,6 +21,7 @@ const removeFromDb = id => {
     }
 }
 
+<<<<<<< HEAD
 const getShoppingCart = () => {
     let shoppingCart = {};
 
@@ -30,6 +31,16 @@ const getShoppingCart = () => {
         shoppingCart = JSON.parse(storedCart);
     }
     return shoppingCart;
+=======
+
+const getShoppingCart = () => {
+    if(localStorage.getItem("shopping-cart")) {
+        return JSON.parse(localStorage.getItem("shopping-cart"));
+    }
+    else {
+        return {};
+    }
+>>>>>>> cab638bc806e52e0404ef1a8376733d8b6fbd6f8
 }
 
 const deleteShoppingCart = () => {
@@ -41,4 +52,8 @@ export {
     removeFromDb,
     getShoppingCart,
     deleteShoppingCart
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cab638bc806e52e0404ef1a8376733d8b6fbd6f8

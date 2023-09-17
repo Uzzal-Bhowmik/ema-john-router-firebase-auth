@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header {
     height: 80px;
     background-color: #1C2B35;;
@@ -20,4 +21,33 @@ nav.header a:hover{
 .text-white{
     color: white;
     padding-left: 5px;
+=======
+nav {
+    background-color: #1C2B35;
+    padding: 8px 0;
+}
+
+.nav-content {
+    width: 88%;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    letter-spacing: 0.005em;
+    font-family: 'Lato', sans-serif;
+    margin-right: 25px;
+    transition: all .5s ease-out;
+}
+
+.nav-links a:hover {
+    cursor: pointer;
+    color: #fe9900;
+    transition: all .3s ease-in;
+>>>>>>> cab638bc806e52e0404ef1a8376733d8b6fbd6f8
 }

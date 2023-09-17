@@ -8,26 +8,34 @@ import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 import { Link, useLoaderData } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(5);
+  const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetch(
-      `http://localhost:5000/products?page=${currentPage}&limit=${productsPerPage}`
+      `https://ema-john-server-4ysp.onrender.com/products?page=${currentPage}&limit=${productsPerPage}`
     )
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      });
   }, [currentPage, productsPerPage]);
 
   useEffect(() => {
+    setIsLoading(true);
     const storedCart = getShoppingCart();
     const cartProductIds = Object.keys(storedCart);
 
-    fetch("http://localhost:5000/productsById", {
+    fetch("https://ema-john-server-4ysp.onrender.com/productsById", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -52,6 +60,8 @@ const Shop = () => {
         }
         // step 5: set the cart
         setCart(savedCart);
+
+        setIsLoading(false);
       });
   }, []);
 
@@ -80,10 +90,14 @@ const Shop = () => {
     deleteShoppingCart();
   };
 
-  // pagination
+  // paginationBar
   const { totalProducts } = useLoaderData();
-
-  const pageNeeded = Math.ceil(totalProducts / productsPerPage);
+  let pageNeeded;
+  if (totalProducts != undefined) {
+    pageNeeded = Math.ceil(totalProducts / productsPerPage);
+  } else {
+    pageNeeded = Math.ceil(76 / productsPerPage);
+  }
 
   const pageNumbers = [...Array(pageNeeded).keys()];
 
@@ -92,15 +106,25 @@ const Shop = () => {
   return (
     <>
       <div className="shop-container">
-        <div className="products-container">
-          {products.map((product) => (
-            <Product
-              key={product._id}
-              product={product}
-              handleAddToCart={handleAddToCart}
-            ></Product>
-          ))}
-        </div>
+        {isloading ? (
+          <Spinner
+            variant="warning"
+            animation="border"
+            className="d-block mx-auto mt-5"
+          ></Spinner>
+        ) : (
+          <>
+            <div className="products-container">
+              {products.map((product) => (
+                <Product
+                  key={product._id}
+                  product={product}
+                  handleAddToCart={handleAddToCart}
+                ></Product>
+              ))}
+            </div>
+          </>
+        )}
         <div className="cart-container">
           <Cart cart={cart} handleClearCart={handleClearCart}>
             <Link className="proceed-link" to="/orders">
@@ -110,7 +134,7 @@ const Shop = () => {
         </div>
       </div>
 
-      <div className="pagination">
+      <div className="paginationBar mx-auto w-75">
         {pageNumbers.map((number) => (
           <button
             key={number}

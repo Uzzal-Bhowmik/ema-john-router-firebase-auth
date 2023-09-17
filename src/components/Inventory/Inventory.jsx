@@ -4,7 +4,7 @@ import Product from "../Product/Product";
 const Inventory = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/products`)
+    fetch(`https://ema-john-server-4ysp.onrender.com/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

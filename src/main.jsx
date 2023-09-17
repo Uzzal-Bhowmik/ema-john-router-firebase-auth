@@ -13,6 +13,8 @@ import Checkout from "./components/Checkout/Checkout";
 import SignUp from "./components/SignUp/SignUp";
 import AuthProvider from "./components/providers/AuthProvider";
 import PrivateRoute from "./routes/PrivateRoute";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +23,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/totalProducts"),
+        loader: () =>
+          fetch("https://ema-john-server-4ysp.onrender.com/totalProducts"),
         element: <Shop></Shop>,
       },
       {

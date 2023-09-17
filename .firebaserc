@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "ema-john-with-firebase-a-99092"
-  }
+    "default": "ema-john-update",
+    "emaJohn": "ema-john-update"
+  },
+  "targets": {},
+  "etags": {}
 }

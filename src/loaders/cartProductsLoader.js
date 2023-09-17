@@ -6,13 +6,16 @@ const cartProductsLoader = async () => {
 
   const cartProductIds = Object.keys(storedCart);
 
-  const loadedProducts = await fetch("http://localhost:5000/productsById", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(cartProductIds),
-  });
+  const loadedProducts = await fetch(
+    "https://ema-john-server-4ysp.onrender.com/productsById",
+    {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartProductIds),
+    }
+  );
   const products = await loadedProducts.json();
 
   console.log(products);
